@@ -16,11 +16,15 @@ xml.onload= function (){
     let totalPopu = data1.reduce((acc,cv)=>acc+cv.population,0)
     console.log(`POPULATION : ${totalPopu}`)
 // Print the country which uses US Dollars as currency.
-let arr;
-let Us = data1.map((ele)=> arr=  ele.currencies)
-for (let keys in Us ){
-    console.log(Us[keys])
-}
+data1.filter(ele=>{
+    
+    for (let key in ele.currencies){
+        if(ele.currencies[key].code==="USD"){
+            console.log(ele.name)
+        }
+    }  
+    
+})
 
 
 
